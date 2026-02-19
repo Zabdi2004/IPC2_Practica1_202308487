@@ -7,8 +7,8 @@ namespace Digital
 {
     public class LibroDigital : MaterialBiblioteca 
     {
-        private int tamañoArchivo; // en MB
-        public LibroDigital(string titulo, string autor, int tamañoArchivo) : base(titulo, autor)
+        private double tamañoArchivo; // en MB
+        public LibroDigital(string titulo, string autor, double tamañoArchivo) : base(titulo, autor)
         {
             this.tamañoArchivo = tamañoArchivo;
         }

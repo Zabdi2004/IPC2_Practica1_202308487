@@ -9,14 +9,14 @@ namespace Material
         private string titulo;
         private string autor;
         private bool disponible;
-        private int codigoUnico;
+        private string codigoUnico;
 
         public MaterialBiblioteca(string titulo, string autor)
         {
             this.titulo = titulo;
             this.autor = autor;
             this.disponible = true; // Por defecto, el material está disponible
-            this.codigoUnico = new Random().Next(1000, 9999); // Genera un código único aleatorio
+            this.codigoUnico = GenerarCodigoUnico(); // Genera un código único al crear el material
         }
 
         //getters y setters
@@ -38,7 +38,22 @@ namespace Material
             set { disponible = value; }
         }
 
-        public int CodigoUnico { get { return codigoUnico; } }
+        public string CodigoUnico { get { return codigoUnico; } }
+
+
+        // Método para generar un código único aleatorio con letras y números
+        public string GenerarCodigoUnico()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            var codigo = new char[8]; // Código de 8 caracteres
+            for (int i = 0; i < codigo.Length; i++)
+            {
+                codigo[i] = chars[random.Next(chars.Length)];
+            }
+            codigoUnico = new string(codigo);
+            return codigoUnico;
+        }
 
 
 
